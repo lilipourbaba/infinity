@@ -1,0 +1,74 @@
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+
+main.main-body.login {
+  .login-container {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 1.25rem;
+    background-color: $natural-100;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+
+    .f-row {
+      .r {
+        position: relative;
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        justify-content: stretch;
+
+        .loader {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-color: rgba(#fff, 0.5);
+          backdrop-filter: blur(1px);
+          z-index: 9;
+          cursor: not-allowed;
+        }
+
+        .login-form {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+
+          @media (mediaMinWidth()) {
+            padding: 0 1.25rem;
+            max-width: 32rem;
+            margin-left: auto;
+          }
+
+          .btns {
+            display: flex;
+            justify-content: flex-end;
+          }
+
+          #otp_pass {
+            text-align: center;
+            letter-spacing: .25em;
+          }
+
+          [name='phone'] {
+            letter-spacing: .25em;
+          }
+        }
+      }
+
+      .l {
+        img {
+          width: 100%;
+        }
+      }
+
+      @media (mediaMaxWidth()) {
+        flex-direction: column-reverse;
+        gap: 2rem;
+      }
+    }
+  }
+}

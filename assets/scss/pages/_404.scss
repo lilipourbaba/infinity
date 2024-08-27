@@ -1,0 +1,17 @@
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+
+main.main-body {
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    img {
+      width: 26rem;
+      max-width: 100%;
+    }
+  }
+}

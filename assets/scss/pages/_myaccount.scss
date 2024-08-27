@@ -1,0 +1,226 @@
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+
+main.main-body .my-account {
+  .f-row {
+    .myAccount-navigation {
+      nav.navigation-content {
+        @media (mediaMinWidth()) {
+          margin-left: 1rem;
+        }
+
+        ul {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+
+          li {
+            display: block;
+            border-bottom: 1px solid $natural-200;
+
+            &:last-child {
+              @media (mediaMinWidth()) {
+                border-bottom: none;
+              }
+            }
+
+            &.is-active {
+              a {
+                color: $body-color;
+              }
+            }
+
+            a {
+              display: block;
+              text-decoration: none;
+              color: $natural-500;
+              width: 100%;
+              padding: 0.75rem 0.25rem;
+
+              &:hover {
+                color: $primary-main;
+              }
+            }
+          }
+
+          @media (mediaMaxWidth()) {
+            flex-direction: row;
+            // flex-wrap: wrap;
+            gap: 0.5rem;
+
+            li {
+              flex: 1 1 auto;
+
+              &.is-active {
+                border-bottom-color: $primary-main;
+              }
+
+              a {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .myAccount-content {
+
+      .woocommerce-orders-table {
+        border-collapse: separate;
+        border-spacing: 0;
+
+        &,
+        * {
+          border: none;
+          text-align: center;
+        }
+
+        thead {
+          tr {
+            th {
+              padding-bottom: 2rem;
+            }
+          }
+        }
+
+        tbody {
+          background-color: $natural-100;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow-sm;
+          overflow: hidden;
+          border-style: none;
+
+          tr {
+            td {
+              padding: 0.75rem 0.25rem;
+              border-bottom: 1px solid $natural-200;
+            }
+
+            &:first-child {
+              td {
+                padding-top: 1.25rem;
+              }
+            }
+
+            &:last-child {
+              td {
+                padding-bottom: 1.25rem;
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+
+      .view-order {
+        .order-head {
+          mark {
+            font-weight: bolder;
+          }
+        }
+
+        .order-head,
+        section.woocommerce-order-details,
+        section.woocommerce-customer-details {
+          position: relative;
+          display: block;
+          width: 100%;
+          background-color: $natural-100;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow;
+          padding: 1.25rem;
+        }
+      }
+
+      .woocommerce-Addresses {
+        .woocommerce-Address {
+          position: relative;
+          display: block;
+          width: 100%;
+          background-color: $natural-100;
+          border-radius: $border-radius;
+          box-shadow: $box-shadow;
+          padding: 1.25rem;
+        }
+
+        .woocommerce-address-fields {
+          .woocommerce-address-fields__field-wrapper {
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+
+            >* {
+              width: calc(50% - 0.375rem);
+              font-size: 1.15rem;
+            }
+
+            .w-100 {
+              width: 100% !important;
+            }
+
+            .hidden {
+              display: none !important;
+            }
+
+            @media (mediaMaxWidth()) {
+              flex-direction: column;
+              align-items: stretch;
+
+              >* {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+
+      .selection {
+        .select2-selection {
+          display: flex;
+          align-items: center;
+          height: auto;
+          width: 100%;
+          padding: .5rem .75rem;
+          font-weight: 400;
+          line-height: 1.5;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border-radius: $border-radius;
+          color: $body-color;
+          font-size: .95rem;
+          background-color: $natural-100;
+          max-width: 100%;
+          border: 1px solid $contrast-color;
+          box-shadow: $box-shadow-sm;
+          transition: border-color $transition, box-shadow $transition;
+          cursor: pointer;
+
+          &[aria-expanded="true"] {
+            box-shadow: $box-shadow;
+          }
+
+          .select2-selection__rendered {
+            flex: 1 1 auto;
+          }
+
+          .select2-selection__arrow {
+            position: relative;
+          }
+        }
+      }
+    }
+
+    @media (mediaMaxWidth()) {
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+  }
+}

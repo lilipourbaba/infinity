@@ -1,0 +1,37 @@
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+@use "../utils/mixins"as *;
+
+nav.breadcrumb {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 2.25rem 0 1.75rem;
+  background-color: $natural-100;
+  padding: 1rem 0;
+  box-shadow: $box-shadow-sm;
+
+  div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    * {
+      color: $natural-500;
+    }
+
+    a {
+      font-size: 1rem;
+      text-decoration: none;
+
+      &:last-child {
+        color: $body-color;
+      }
+
+      &:hover {
+        color: $secondary-main;
+      }
+    }
+  }
+}

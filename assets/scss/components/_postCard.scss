@@ -1,0 +1,62 @@
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+@use "../utils/mixins"as *;
+
+.post-card {
+  height: 100%;
+
+  a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: $border-radius;
+    background-color: $natural-100;
+    color: $body-color;
+    text-decoration: none;
+    transition: $transition;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 1/1;
+      transition: $transition;
+    }
+
+    .title {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 3.75rem;
+      padding: 0.75rem;
+      background-color: rgba(#fff, 0.5);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn {
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      width: 2.75rem;
+      height: 2.75rem;
+
+      i {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover {
+      color: $primary-main;
+      box-shadow: $box-shadow;
+
+      img {
+        transform: $image-transform;
+      }
+    }
+  }
+}

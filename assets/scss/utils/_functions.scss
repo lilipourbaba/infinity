@@ -1,0 +1,12 @@
+@use "sass:map";
+@use "./variables"as *;
+
+@function mediaMinWidth($breakpoint:"md", $list:$containers-breakpoint) {
+  $breakpoint-val: map.get($list, $breakpoint);
+  @return "min-width:"+$breakpoint-val;
+}
+
+@function mediaMaxWidth($breakpoint:"md", $list:$containers-breakpoint) {
+  $breakpoint-val: map.get($list, $breakpoint) - .2;
+  @return "max-width:"+$breakpoint-val;
+}

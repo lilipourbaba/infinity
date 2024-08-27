@@ -1,0 +1,202 @@
+@use "sass:map";
+@use 'sass:color';
+@use "../utils/variables"as *;
+@use "../utils/mixins"as *;
+
+@mixin btns($base:1) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  padding: $base*.375rem $base*.75rem;
+  border-radius: $border-radius;
+  background: transparent;
+  transition:
+  /**/
+  color #{$transition},
+  background-color #{$transition},
+  border-color #{$transition},
+  box-shadow #{$transition},
+  filter #{$transition},
+  opacity #{$transition}
+  /**/
+  ;
+  cursor: pointer;
+  @include user-select();
+
+  &>i {
+    vertical-align: middle;
+    line-height: 1.5;
+    font-size: 1em !important;
+  }
+}
+
+@mixin btn (
+  /**/
+  $color,
+  $bg-color,
+  $br-color,
+  $h-color,
+  $h-bg-color,
+  $h-br-color,
+  $br-width: 1px
+
+  /**/
+) {
+  color: $color;
+  background-color: $bg-color;
+  border: $br-width solid $br-color;
+
+  &:hover {
+    color: $h-color;
+    background-color: $h-bg-color;
+    border-color: $h-br-color;
+  }
+
+  &:focus {
+    color: $color;
+    background-color: $bg-color;
+    border-color: $br-color;
+    box-shadow: 0 0 0 1px $br-color;
+  }
+
+  &:focus:active {
+    box-shadow: 0 0 0 2px $br-color;
+  }
+}
+
+$btn-prefix: "btn";
+
+@function btn-select($variant, $prefix:$btn-prefix) {
+  @return "."+$prefix+"[variant='"+$variant+"']";
+}
+
+.#{$btn-prefix} {
+  @include btns(1.75);
+
+  &:disabled {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+/** Initial Buttons **/
+
+$btn-tags:
+/**/
+"default"
+"primary",
+"secondary",
+"text-primary",
+"text-secondary",
+"text-light"
+"yellow";
+
+#{btn-select("default")} {
+  @include btn(
+    /**/
+    $color: $body-color,
+    $bg-color: $natural-100,
+    $br-color: $natural-100,
+    $h-color: $body-color,
+    $h-bg-color: $natural-200,
+    $h-br-color: $natural-200
+    /**/
+  );
+}
+
+#{btn-select("primary")} {
+  @include btn(
+    /**/
+    $color: $contrast-color,
+    $bg-color: $primary-main,
+    $br-color: $primary-main,
+    $h-color: $contrast-color,
+    $h-bg-color: $primary-dark,
+    $h-br-color: $primary-dark
+    /**/
+  );
+}
+
+#{btn-select("secondary")} {
+  @include btn(
+    /**/
+    $color: $contrast-color,
+    $bg-color: $secondary-main,
+    $br-color: $secondary-main,
+    $h-color: $contrast-color,
+    $h-bg-color: $secondary-dark,
+    $h-br-color: $secondary-dark
+    /**/
+  );
+}
+
+#{btn-select("text-primary")} {
+  @include btn(
+    /**/
+    $color: $contrast-color,
+    $bg-color: $text-primary,
+    $br-color: $text-primary,
+    $h-color: $contrast-color,
+    $h-bg-color: $secondary-main,
+    $h-br-color: $secondary-main
+    /**/
+  );
+}
+
+#{btn-select("text-secondary")} {
+  @include btn(
+    /**/
+    $color: $text-primary,
+    $bg-color: $natural-100,
+    $br-color: $natural-100,
+    $h-color: $natural-100,
+    $h-bg-color: $text-primary,
+    $h-br-color: $text-primary
+    /**/
+  );
+
+  box-shadow: $box-shadow-sm;
+
+  &:hover {
+    box-shadow: $box-shadow;
+  }
+}
+
+#{btn-select("text-light")} {
+  @include btn(
+    /**/
+    $color: $text-primary,
+    $bg-color: $natural-200,
+    $br-color: $natural-200,
+    $h-color: $natural-100,
+    $h-bg-color: $natural-700,
+    $h-br-color: $natural-700
+    /**/
+  );
+}
+
+#{btn-select("yellow")} {
+  @include btn(
+    /**/
+    $color: $body-color,
+    $bg-color: $warning2,
+    $br-color: $warning2,
+    $h-color: $natural-100,
+    $h-bg-color: darken(map.get($colors, "warning2"), 15%),
+    $h-br-color: darken(map.get($colors, "warning2"), 15%)
+    /**/
+  );
+}
+
+/** **/

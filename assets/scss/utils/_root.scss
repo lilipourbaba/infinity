@@ -1,0 +1,161 @@
+@use "sass:map";
+@use "./variables"as *;
+@use "./functions"as *;
+
+:root {
+  --body-font-family: "Peyda", system-ui, -apple-system, "Segoe UI", Roboto;
+  --body-font-size: 1.25rem;
+  --body-font-size-sm: 1rem;
+  --body-font-weight: 400;
+  --body-line-height: 1.5;
+  --body-color: #303030;
+  --body-bg: #F2F2F2;
+  --body-text-align: right;
+  --border-radius: 1rem;
+  --border-radius-sm: 0.625rem;
+  --box-shadow: 0 0 0.5rem #{rgba(145, 145, 145, 0.25)};
+  --box-shadow-sm: 0 0 0.25rem rgba(145, 145, 145, 0.15);
+  --image-transform: scale(1.05) rotate(-1deg);
+  --primary-dark: #C3226D;
+  --primary-main: #FF52A2;
+  --primary-light: #FF7AB8;
+  --secondary-dark: #223391;
+  --secondary-main: #2B41B8;
+  --secondary-light: #5166D6;
+  --contrast-color: #FFFBFB;
+  --text-primary: #303030;
+  --text-secondary: #B0ADAA;
+  --text-accent: #4555AC;
+  --success: #2E7D32;
+  --error: #D32F2F;
+  --warning: #ED6C02;
+  --warning2: #FADC3D;
+  --information: #0288d1;
+  --natural-100: #ffffff;
+  --natural-200: #eaeaea;
+  --natural-300: #dddddd;
+  --natural-400: #c5c5c5;
+  --natural-500: #acacac;
+  --natural-600: #949494;
+  --natural-700: #626262;
+  --natural-800: #313131;
+  --natural-900: #000000;
+}
+
+body {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  color: var(--body-color);
+  background-color: var(--body-bg);
+  text-align: var(--body-text-align);
+
+  @media (#{mediaMaxWidth("md")}) {
+    font-size: var(--body-font-size-sm);
+  }
+}
+
+h1,
+.h1 {
+  font-size: map.get($typography, "h1");
+  font-weight: 600;
+
+  @media (#{mediaMaxWidth("md")}) {
+    font-size: map.get($typography, "h2");
+  }
+}
+
+h2,
+.h2 {
+  font-size: map.get($typography, "h2");
+  font-weight: 600;
+
+  @media (#{mediaMaxWidth("md")}) {
+    font-size: map.get($typography, "h3");
+  }
+}
+
+h3,
+.h3 {
+  font-size: map.get($typography, "h3");
+  font-weight: 500;
+
+  @media (#{mediaMaxWidth("md")}) {
+    font-size: map.get($typography, "h4");
+  }
+}
+
+h4,
+.h4 {
+  font-size: map.get($typography, "h4");
+  font-weight: 500;
+
+  @media (#{mediaMaxWidth("md")}) {
+    font-size: map.get($typography, "h5");
+  }
+}
+
+h5,
+.h5 {
+  font-size: map.get($typography, "h5");
+  font-weight: 500;
+}
+
+.txt-title {
+  font-size: map.get($typography, "title");
+  font-weight: 500;
+
+  @media (#{mediaMaxWidth("md")}) {
+    font-size: map.get($typography, "title-s");
+  }
+}
+
+.txt-caption {
+  font-size: map.get($typography, "caption");
+  font-weight: 400;
+}
+
+::-moz-selection {
+  color: map.get($colors, "secondary-dark");
+  background: map.get($colors, "primary-light");
+}
+
+::selection {
+  color: map.get($colors, "secondary-dark");
+  background: map.get($colors, "primary-light");
+}
+
+.clearfix {
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  @for $i from 0 through 16 {
+    &.s-#{$i} {
+      padding: $i * 0.125rem 0 !important;
+    }
+  }
+}
+
+.w100 {
+  width: 100% !important;
+}
+
+.w75 {
+  width: 75% !important;
+}
+
+.w50 {
+  width: 50% !important;
+}
+
+.w25 {
+  width: 25% !important;
+}
+
+main.main-body {
+  min-height: 50vh;
+}

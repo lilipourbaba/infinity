@@ -1,0 +1,24 @@
+{
+  "name": "infinity-kids",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.php",
+  "scripts": {
+    "w-scss": "sass ./assets/scss/index.scss ./assets/css/compiled.css -w",
+    "b-scss": "sass ./assets/scss/index.scss ./assets/css/compiled.css -s compressed",
+    "w-pre-css": "postcss ./assets/css/compiled.css -o ./assets/css/styles-main.css --use autoprefixer -w",
+    "b-pre-css": "postcss ./assets/css/compiled.css -o ./assets/css/styles-main.css --use autoprefixer -m",
+    "build-css": "npm run b-scss && npm run b-pre-css",
+    "w-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.bundle.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --watch",
+    "build-js": "esbuild ./assets/js/index.js --outfile=./assets/js/dist/scripts.min.js --target=es6,chrome58,edge18,firefox54,safari11 --bundle --minify --sourcemap"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "swiper": "^11.0.5"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.12"
+  }
+}

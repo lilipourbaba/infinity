@@ -1,0 +1,119 @@
+/** root **/
+$body-font-family: var(--body-font-family);
+$body-font-size: var(--body-font-size);
+$body-font-size-sm: var(--body-font-size-sm);
+$body-font-weight: var(--body-font-weight);
+$body-line-height: var(--body-line-height);
+$body-color: var(--body-color);
+$body-bg: var(--body-bg);
+$body-text-align: var(--body-text-align);
+$border-radius: var(--border-radius);
+$border-radius-sm: var(--border-radius-sm);
+$box-shadow: var(--box-shadow);
+$box-shadow-sm: var(--box-shadow-sm);
+$image-transform: var(--image-transform);
+$primary-dark: var(--primary-dark);
+$primary-main: var(--primary-main);
+$primary-light: var(--primary-light);
+$secondary-dark: var(--secondary-dark);
+$secondary-main: var(--secondary-main);
+$secondary-light: var(--secondary-light);
+$contrast-color: var(--contrast-color);
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$text-accent: var(--text-accent);
+$success: var(--success);
+$error: var(--error);
+$warning: var(--warning);
+$warning2: var(--warning2);
+$information: var(--information);
+$natural-100: var(--natural-100);
+$natural-200: var(--natural-200);
+$natural-300: var(--natural-300);
+$natural-400: var(--natural-400);
+$natural-500: var(--natural-500);
+$natural-600: var(--natural-600);
+$natural-700: var(--natural-700);
+$natural-800: var(--natural-800);
+$natural-900: var(--natural-900);
+/**/
+
+
+$colors: (
+  /**/
+  primary-dark: #C3226D,
+  primary-main: #FF52A2,
+  primary-light: #FF7AB8,
+  secondary-dark: #223391,
+  secondary-main: #2B41B8,
+  secondary-light: #5166D6,
+  contrast-color: #FFFBFB,
+  text-primary: #303030,
+  text-secondary: #B0ADAA,
+  text-accent: #4555AC,
+  success: #2E7D32,
+  error: #D32F2F,
+  warning: #ED6C02,
+  warning2: #FADC3D,
+  information: #0288d1,
+  natural-100: #ffffff,
+  natural-200: #eaeaea,
+  natural-300: #dddddd,
+  natural-400: #c5c5c5,
+  natural-500: #acacac,
+  natural-600: #949494,
+  natural-700: #626262,
+  natural-800: #313131,
+  natural-900: #000000,
+  /**/
+);
+
+
+$typography:(
+  /**/
+  title: 5rem,
+  title-s: 3.75rem,
+  h1: 2rem,
+  h2: 1.5rem,
+  h3: 1.25rem,
+  h4: 1.1rem,
+  h5: 1rem,
+  caption: 0.85rem
+  /**/
+);
+
+$containers-padding: .5rem;
+
+$containers-breakpoint:(
+  /**/
+  sm: 576px,
+  md: 768px,
+  lg: 960px,
+  xl: 1200px,
+  xxl: 1440px
+  /**/
+);
+
+$containers-width:(
+  /**/
+  sm: 568px,
+  md: 760px,
+  lg: 952px,
+  xl: 1160px,
+  xxl: 1400px
+  /**/
+);
+
+
+$grids-padding: .25rem;
+
+$grids-col: 1,
+2,
+3,
+4,
+5,
+6,
+7;
+
+
+$transition: 0.25s ease;

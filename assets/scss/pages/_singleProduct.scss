@@ -1,0 +1,291 @@
+@use "sass:map";
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+@use "../utils/mixins"as *;
+
+main.site-main {
+  .single-product {
+    .details-title {
+      margin-bottom: .75rem;
+    }
+
+    section.product-details {
+      position: relative;
+      width: 100%;
+      background-color: $natural-100;
+      border-radius: $border-radius;
+      padding: 1.25rem 1rem;
+      box-shadow: $box-shadow-sm;
+      overflow: hidden;
+
+      .product {
+        &-summary {
+          h1 {
+            @media (mediaMaxWidth()) {
+              margin-top: 1.75rem;
+            }
+          }
+
+          .price {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            background-color: $body-bg;
+            border-radius: $border-radius-sm;
+
+            >p {
+              &:first-child {
+                flex: 1 1 auto;
+              }
+
+              >span {
+                display: block;
+              }
+
+              .regular-price {
+                font-size: 1rem;
+                text-decoration: line-through;
+              }
+            }
+          }
+
+          p.out-of-stock {
+            display: none;
+            visibility: hidden;
+          }
+
+          .variations_form {
+            .variations {
+              .input-label {
+                .f-row {
+                  display: flex;
+                  align-items: center;
+
+                  .form-select {
+                    margin: 0;
+                  }
+                }
+              }
+            }
+
+            .variations_button {
+              .input-label .f-row {
+                display: flex;
+                align-items: center;
+
+                .scope-2 {
+                  padding: 0;
+                }
+              }
+
+              .submit-btn {
+                margin-top: 1.75rem;
+              }
+            }
+
+            .input-label {
+              margin-bottom: 0.75rem;
+            }
+          }
+
+          >* {
+            margin-bottom: 1.75rem;
+          }
+        }
+
+        &-images {
+          .swiper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: $border-radius;
+
+            * {
+              @include user-select();
+            }
+
+            .swiper-navigation {
+              .navigation {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                z-index: 11;
+
+                &.prev {
+                  right: 0.25rem;
+                }
+
+                &.next {
+                  left: 0.25rem;
+                }
+
+                .btn {
+                  padding: 0.375rem 0.75rem;
+                  border-radius: $border-radius-sm;
+                }
+              }
+            }
+
+            .swiper-slide {
+              overflow: hidden;
+              border-radius: $border-radius;
+
+              img {
+                width: 100%;
+                object-fit: cover;
+                transition: $transition;
+
+                &.thumb {
+                  aspect-ratio: 1/1;
+                  cursor: pointer;
+
+                  &:hover {
+                    transform: $image-transform;
+                  }
+                }
+                     &:hover {
+                                          transform: $image-transform;
+
+                     }
+              }
+            }
+          }
+
+          #single-product-gallery {
+            margin-bottom: 1.25rem;
+          }
+        }
+      }
+
+      @media (mediaMaxWidth()) {
+        flex-direction: column-reverse;
+      }
+
+      @media (mediaMinWidth()) {
+        .product-summary {
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    section.product-details #sizes-guide-modal {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      padding: 1.25rem;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 9999;
+      transition: $transition;
+
+      .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        top: 0;
+        transform: translateY(-10vh);
+        visibility: hidden;
+        transition: $transition;
+
+        .btn * {
+          pointer-events: none;
+        }
+
+        .sizes-guide {
+          &-header {
+            display: flex;
+            justify-content: space-between;
+
+            [icon-name="x"] {
+              color: $error;
+            }
+          }
+
+          &-container {
+            position: relative;
+            display: block;
+            background-color: $natural-100;
+            border-radius: $border-radius;
+            box-shadow: $box-shadow;
+            overflow: auto;
+            padding: 1.25rem;
+            max-height: 80vh;
+          }
+
+          &-table {
+            table {
+              position: relative;
+              border-spacing: 1;
+              border-collapse: collapse;
+              overflow: hidden;
+              width: 100%;
+              margin: 0 auto;
+              border-radius: $border-radius-sm;
+
+              * {
+                position: relative;
+                text-align: center;
+              }
+
+              thead {
+                tr {
+                  height: 2.75rem;
+                  background: rgba(map.get($colors, "natural-200"), 0.25);
+
+                  th {
+                    padding: 0.75rem;
+                    vertical-align: middle;
+                    border: 1px solid $natural-200;
+                  }
+                }
+              }
+
+              tbody {
+                tr {
+                  height: 2.5rem;
+
+                  td {
+                    padding: 0.75rem;
+                    vertical-align: middle;
+                    border: 1px solid $natural-200;
+
+                    &:first-child {
+                      background: rgba(map.get($colors, "natural-200"), 0.25);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        z-index: 9999;
+
+        .container {
+          transform: translateY(0);
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

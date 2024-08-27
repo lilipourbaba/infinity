@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "sass:math";
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+
+@mixin row($base: 1) {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  >* {
+    flex: 0 0 auto;
+    max-width: 100%;
+    padding-right: $base * $grids-padding;
+    padding-left: $base * $grids-padding;
+  }
+
+  &.c-auto {
+    >* {
+      flex: 1 1 auto;
+    }
+  }
+}
+
+.f-row {
+  @include row();
+}
+
+@each $col in $grids-col {
+  $w-col: math.div(100%, $col);
+
+  .c-#{$col} {
+    &>* {
+      width: $w-col;
+    }
+
+    @each $scope in $grids-col {
+      @if ($scope < $col) {
+        &>.scope-#{$scope} {
+          width: $w-col * $scope;
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint,
+$breakpoint-width in $containers-breakpoint {
+  @media (max-width: ($breakpoint-width - .2)) {
+    @each $col in $grids-col {
+      $w-col: math.div(100%, $col);
+
+      .c-#{$breakpoint}-#{$col} {
+        &>* {
+          width: $w-col;
+        }
+
+        @each $scope in $grids-col {
+          @if ($scope < $col) {
+            &>.scope-#{$scope} {
+              width: $w-col * $scope;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $breakpoint,
+$breakpoint-width in $containers-breakpoint {
+  @media (max-width: ($breakpoint-width - .2)) {
+    .w-#{$breakpoint}-100 {
+      width: 100% !important;
+    }
+
+    .w-#{$breakpoint}-75 {
+      width: 75% !important;
+    }
+
+    .w-#{$breakpoint}-50 {
+      width: 50% !important;
+    }
+
+    .w-#{$breakpoint}-25 {
+      width: 25% !important;
+    }
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}

@@ -1,0 +1,67 @@
+@use "../utils/variables"as *;
+@use "../utils/functions"as *;
+
+main.main-body.about-us {
+  .head-img {
+    padding: 1.5rem 0;
+
+    img {
+      width: 100%;
+      height: auto;
+
+      @media (mediaMaxWidth()) {
+        &.md {
+          display: none;
+          visibility: hidden;
+        }
+      }
+
+      @media (mediaMinWidth()) {
+        &.sm {
+          display: none;
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  section.container {
+    .f-row {
+      align-items: center;
+
+      img {
+        padding: 0 15%;
+      }
+
+      .context {
+        div.w-100 {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    @media (mediaMaxWidth()) {
+      .f-row {
+        flex-direction: column;
+
+        &.rev {
+          flex-direction: column-reverse;
+        }
+
+        img {
+          margin-bottom: 1rem;
+        }
+
+        .context {
+          div.w-100 {
+            a {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
